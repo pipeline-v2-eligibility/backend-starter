@@ -8,6 +8,7 @@ on:
 jobs:    
   autograde:
     name: Test & Auto-grade Code Changes
+    if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
     
     strategy:
