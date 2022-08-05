@@ -3,11 +3,16 @@ name: Gradr
 on:
   push:
     branches:
-    - main
+      - main
+      - master
+  pull_request:
+    branches: 
+      - main
+      - master
 
 jobs:    
   autograde:
-    name: Test & Auto-grade Code Changes
+    name: Test & Auto-grade Code Challenge
     if: ${{ !github.event.repository.is_template }}
     runs-on: ubuntu-latest
     
@@ -27,7 +32,7 @@ jobs:
     - name: Acquire Audits
       uses: actions/checkout@v2
       with: 
-        repository: pipeline-v2-eligibility/audits
+        repository: pipeline-v2-eligibility/audits@v1
         path: audits
 
     - name: Install Dependencies
